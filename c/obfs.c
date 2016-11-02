@@ -9,6 +9,7 @@ int rand_bytes(uint8_t *output, int len);
 
 #include "obfsutil.c"
 #include "crc32.c"
+#include "base64.c"
 #include "http_simple.c"
 #include "tls1.2_ticket.c"
 #include "verify.c"
@@ -45,6 +46,7 @@ obfs_class * new_obfs_class(char *plugin_name)
     if (strcmp(plugin_name, "plain") == 0)
         return NULL;
     init_crc32_table();
+    init_shift128plus();
     if (strcmp(plugin_name, "http_simple") == 0) {
         obfs_class * plugin = (obfs_class*)malloc(sizeof(obfs));
         plugin->init_data = init_data;
@@ -54,6 +56,18 @@ obfs_class * new_obfs_class(char *plugin_name)
         plugin->dispose = http_simple_dispose;
 
         plugin->client_encode = http_simple_client_encode;
+        plugin->client_decode = http_simple_client_decode;
+
+        return plugin;
+    } else if (strcmp(plugin_name, "http_post") == 0) {
+        obfs_class * plugin = (obfs_class*)malloc(sizeof(obfs));
+        plugin->init_data = init_data;
+        plugin->new_obfs = http_simple_new_obfs;
+        plugin->get_server_info = get_server_info;
+        plugin->set_server_info = set_server_info;
+        plugin->dispose = http_simple_dispose;
+
+        plugin->client_encode = http_post_client_encode;
         plugin->client_decode = http_simple_client_decode;
 
         return plugin;
@@ -127,6 +141,34 @@ obfs_class * new_obfs_class(char *plugin_name)
 
         plugin->client_pre_encrypt = auth_sha1_v4_client_pre_encrypt;
         plugin->client_post_decrypt = auth_sha1_v4_client_post_decrypt;
+
+        return plugin;
+    } else if (strcmp(plugin_name, "auth_aes128_md5") == 0) {
+        obfs_class * plugin = (obfs_class*)malloc(sizeof(obfs));
+        plugin->init_data = auth_simple_init_data;
+        plugin->new_obfs = auth_aes128_md5_new_obfs;
+        plugin->get_server_info = get_server_info;
+        plugin->set_server_info = set_server_info;
+        plugin->dispose = auth_simple_dispose;
+
+        plugin->client_pre_encrypt = auth_aes128_sha1_client_pre_encrypt;
+        plugin->client_post_decrypt = auth_aes128_sha1_client_post_decrypt;
+        plugin->client_udp_pre_encrypt = auth_aes128_sha1_client_udp_pre_encrypt;
+        plugin->client_udp_post_decrypt = auth_aes128_sha1_client_udp_post_decrypt;
+
+        return plugin;
+    } else if (strcmp(plugin_name, "auth_aes128_sha1") == 0) {
+        obfs_class * plugin = (obfs_class*)malloc(sizeof(obfs));
+        plugin->init_data = auth_simple_init_data;
+        plugin->new_obfs = auth_aes128_sha1_new_obfs;
+        plugin->get_server_info = get_server_info;
+        plugin->set_server_info = set_server_info;
+        plugin->dispose = auth_simple_dispose;
+
+        plugin->client_pre_encrypt = auth_aes128_sha1_client_pre_encrypt;
+        plugin->client_post_decrypt = auth_aes128_sha1_client_post_decrypt;
+        plugin->client_udp_pre_encrypt = auth_aes128_sha1_client_udp_pre_encrypt;
+        plugin->client_udp_post_decrypt = auth_aes128_sha1_client_udp_post_decrypt;
 
         return plugin;
     }
