@@ -734,6 +734,7 @@ int auth_aes128_sha1_pack_auth_data(auth_simple_global_data *global, server_info
         char encrypt_key_base64[256] = {0};
         unsigned char encrypt_key[local->user_key_len];
         memcpy(encrypt_key, local->user_key, local->user_key_len);
+#warning "Base64 lib need"
         base64_encode(encrypt_key, local->user_key_len, encrypt_key_base64);
 
         int base64_len;

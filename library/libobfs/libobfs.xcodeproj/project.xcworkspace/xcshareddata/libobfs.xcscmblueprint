@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "937832AF363162E6C8C76B3C8F85C42D16E3BCD7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "937832AF363162E6C8C76B3C8F85C42D16E3BCD7" : 9223372036854775807,
+    "DB7231E74227E06B741062C9E94288CC651E14E2" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "15A9EF51-94CA-466E-B12F-55D0311C1D81",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "937832AF363162E6C8C76B3C8F85C42D16E3BCD7" : "obfsplugin\/",
+    "DB7231E74227E06B741062C9E94288CC651E14E2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "libobfs",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "library\/libobfs\/libobfs.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/networkextension\/obfsplugin.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "937832AF363162E6C8C76B3C8F85C42D16E3BCD7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:yarshure\/simpletunnel.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DB7231E74227E06B741062C9E94288CC651E14E2"
+    }
+  ]
+}

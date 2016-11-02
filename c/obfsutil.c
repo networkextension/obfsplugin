@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 int get_head_size(char *plaindata, int size, int def_size) {
     if (plaindata == NULL || size < 2)
         return def_size;
