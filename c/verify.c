@@ -1,6 +1,8 @@
 
 #include "verify.h"
-
+#include <stdlib.h>
+#include <string.h>
+#include "crc32.h"
 static int verify_simple_pack_unit_size = 2000;
 
 typedef struct verify_simple_local_data {
@@ -30,7 +32,19 @@ void verify_simple_dispose(obfs *self) {
     self->l_data = NULL;
     dispose_obfs(self);
 }
+uint64_t xor_seed[ 2 ];
 
+static inline uint64_t xor_next(void) {
+    uint64_t s1 = xor_seed[ 0 ];
+    const uint64_t s0 = xor_seed[ 1 ];
+    xor_seed[ 0 ] = s0;
+    s1 ^= s1 << 23; // a
+    return ( xor_seed[ 1 ] = ( s1 ^ s0 ^ ( s1 >> 17 ) ^ ( s0 >> 26 ) ) ) + s0; // b, c
+}
+//unsigned int xorshift128plus()
+//{
+//    return 1;
+//}
 int verify_simple_pack_data(char *data, int datalength, char *outdata) {
     unsigned char rand_len = (xorshift128plus() & 0xF) + 1;
     int out_size = rand_len + datalength + 6;

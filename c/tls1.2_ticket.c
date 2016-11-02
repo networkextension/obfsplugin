@@ -1,6 +1,11 @@
-
+#include "obfs.h"
 #include "tls1.2_ticket.h"
-
+#include <utime.h>
+ #include <stdlib.h>
+ #include <time.h>
+#include <string.h>
+#include <stdio.h>
+#include "ss.h"
 typedef struct tls12_ticket_auth_global_data {
     uint8_t local_client_id[32];
 }tls12_ticket_auth_global_data;
@@ -20,7 +25,7 @@ void tls12_ticket_auth_local_data_init(tls12_ticket_auth_local_data* local) {
     local->recv_buffer = malloc(0);
     local->recv_buffer_size = 0;
 }
-
+extern int rand_bytes(unsigned char *buf, int num);
 void * tls12_ticket_auth_init_data() {
     tls12_ticket_auth_global_data *global = (tls12_ticket_auth_global_data*)malloc(sizeof(tls12_ticket_auth_global_data));
     rand_bytes(global->local_client_id, 32);

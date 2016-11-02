@@ -1,6 +1,7 @@
-
+#include <stdlib.h>
 #include "http_simple.h"
-
+#include <string.h>
+#include <stdio.h>
 static char* g_useragent[] = {
     "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0",
     "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:40.0) Gecko/20100101 Firefox/44.0",

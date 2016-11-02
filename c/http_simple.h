@@ -6,7 +6,7 @@
 
 #ifndef _HTTP_SIMPLE_H
 #define _HTTP_SIMPLE_H
-
+#include "obfs.h"
 obfs * http_simple_new_obfs();
 void http_simple_dispose(obfs *self);
 

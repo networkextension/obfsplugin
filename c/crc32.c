@@ -1,3 +1,4 @@
+#include <stdlib.h>
 static uint32_t crc32_table[256] = {0};
 
 void init_crc32_table(void) {

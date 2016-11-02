@@ -1,6 +1,10 @@
 
 #include "auth.h"
-
+#include "crc32.h"
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#include "ss.h"
 static int auth_simple_pack_unit_size = 2000;
 
 typedef struct auth_simple_global_data {
@@ -20,6 +24,12 @@ void auth_simple_local_data_init(auth_simple_local_data* local) {
     local->recv_buffer_size = 0;
 }
 
+// rand_bytes need
+int rand_bytes(unsigned char *buf, int num){
+    
+    
+    return 0;
+}
 void * auth_simple_init_data() {
     auth_simple_global_data *global = (auth_simple_global_data*)malloc(sizeof(auth_simple_global_data));
     rand_bytes(global->local_client_id, 8);

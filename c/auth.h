@@ -7,6 +7,7 @@
 #ifndef _AUTH_H
 #define _AUTH_H
 
+#include "obfs.h"
 void * auth_simple_init_data();
 obfs * auth_simple_new_obfs();
 void auth_simple_dispose(obfs *self);

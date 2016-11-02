@@ -1,4 +1,4 @@
-zR/*
+/*
  * obfs.h - Define shadowsocksR server's buffers and callbacks
  *
  * Copyright (C) 2015 - 2016, Break Wa11 <mmgac001@gmail.com>
@@ -9,7 +9,9 @@ zR/*
 
 #include <stdint.h>
 #include <unistd.h>
-
+#define OBFS_HMAC_SHA1_LEN 10
+int get_head_size(char *plaindata, int size, int def_size);
+const int ONETIMEAUTH_BYTES = 16;
 typedef struct server_info {
     char host[64];
     uint16_t port;
@@ -63,5 +65,5 @@ void set_server_info(obfs *self, server_info *server);
 void get_server_info(obfs *self, server_info *server);
 obfs * new_obfs();
 void dispose_obfs(obfs *self);
-
+uint64_t xorshift128plus(void);
 #endif // _OBFS_H

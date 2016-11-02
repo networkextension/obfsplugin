@@ -1,11 +1,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "utils.h"
+//#include "utils.h"
 #include "obfs.h"
 
 int rand_bytes(uint8_t *output, int len);
-#define OBFS_HMAC_SHA1_LEN 10
+
 
 #include "obfsutil.c"
 #include "crc32.c"
@@ -130,7 +130,7 @@ obfs_class * new_obfs_class(char *plugin_name)
 
         return plugin;
     }
-    LOGE("Load obfs '%s' failed", plugin_name);
+    //LOGE("Load obfs '%s' failed", plugin_name);
     return NULL;
 }
 
