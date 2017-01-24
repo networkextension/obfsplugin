@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6954F5A11E3725A00059CDF3 /* obfsutil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = obfsutil.h; sourceTree = "<group>"; };
 		69F2B9F01DC985DA0040F7C0 /* libobfs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libobfs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F2B9F31DC985DA0040F7C0 /* libobfs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libobfs.h; sourceTree = "<group>"; };
 		69F2B9F41DC985DA0040F7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 				69F2BA011DC986030040F7C0 /* obfs.c */,
 				69F2BA021DC986030040F7C0 /* obfs.h */,
 				69F2BA031DC986030040F7C0 /* obfsutil.c */,
+				6954F5A11E3725A00059CDF3 /* obfsutil.h */,
 				69F2BA041DC986030040F7C0 /* tls1.2_ticket.c */,
 				69F2BA051DC986030040F7C0 /* tls1.2_ticket.h */,
 				69F2BA061DC986030040F7C0 /* verify.c */,

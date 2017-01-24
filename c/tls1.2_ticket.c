@@ -1,4 +1,4 @@
-#include "obfs.h"
+
 #include "tls1.2_ticket.h"
 #include <utime.h>
  #include <stdlib.h>
@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stdio.h>
 #include "ss.h"
+#include "obfsutil.h"
+
 typedef struct tls12_ticket_auth_global_data {
     uint8_t local_client_id[32];
 }tls12_ticket_auth_global_data;

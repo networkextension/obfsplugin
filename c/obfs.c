@@ -7,14 +7,14 @@
 int rand_bytes(uint8_t *output, int len);
 
 
-#include "obfsutil.c"
-#include "crc32.c"
-//#include "base64.c"
-#include "http_simple.c"
-#include "tls1.2_ticket.c"
-#include "verify.c"
-#include "auth.c"
 
+#include "crc32.h"
+//#include "base64.c"
+#include "http_simple.h"
+#include "tls1.2_ticket.h"
+#include "verify.h"
+#include "auth.h"
+#include "obfsutil.h"
 void * init_data() {
     return malloc(1);
 }

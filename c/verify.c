@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "crc32.h"
+#include "obfsutil.h"
 static int verify_simple_pack_unit_size = 2000;
 
 typedef struct verify_simple_local_data {
